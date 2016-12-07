@@ -1,0 +1,44 @@
+public class Baliog_MP5 extends Thread{
+ private int[][] table;
+ private int frst;
+ private int lst;
+ public Baliog_MP5(int[][] table, int i, int j){
+  this.table = table;
+  this.frst = i;
+  this.lst = j;
+ }
+// x y z   // a b c
+// i j     // x y
+ public void run(){
+  int a = 0, b = 0, c = 0;
+     for (int row = frst; row<lst; row++){
+       for (int col=0; col!=table.length;col++){
+         if (col==0){
+           a = col;
+         }
+         
+         else{
+           a = table[row-1][col-1];
+         }
+
+         if (col == table.length-1){
+           c = 0;
+         }
+         
+         else{
+           c = table[row-1][col+1];
+         }
+         
+         b = table[row-1][col];
+         
+         if ( (a==0 && b==0 && c==0) || (a==1 && b==1 && c==1) || (a==1 && b==0 && c==1) || (a==1 && b==1 && c==0) )
+           table[row][col] = 0;
+         
+         else table[row][col] = 1;
+         
+         System.out.print(table[row][col]);
+       }
+       System.out.println();
+  }
+ }
+}
