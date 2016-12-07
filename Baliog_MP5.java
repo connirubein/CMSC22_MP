@@ -1,14 +1,15 @@
 public class Baliog_MP5 extends Thread{
+  
  private int[][] table;
  private int frst;
  private int lst;
+ 
  public Baliog_MP5(int[][] table, int i, int j){
   this.table = table;
   this.frst = i;
   this.lst = j;
  }
-// x y z   // a b c
-// i j     // x y
+ 
  public void run(){
   int a = 0, b = 0, c = 0;
      for (int row = frst; row<lst; row++){
@@ -38,7 +39,7 @@ public class Baliog_MP5 extends Thread{
          
          System.out.print(table[row][col]);
        }
-       System.out.println();
+       
   }
  }
 }
